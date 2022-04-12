@@ -13,24 +13,21 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="cliente")
-public class Cliente implements Serializable {
-
+@Table(name="producto")
+public class Producto implements Serializable{
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false)
 	private String nombre;
-	private String apellido;
+	private String descripcion;
 	
-	@Column(nullable = false, unique = true)
-	private String email;
-	private int telefono;
-	
-	@Column(name="created_at")
+	@Column(name = "fecha_pedido")
 	@Temporal(TemporalType.DATE)
-	private Date createdAt;
+	private Date fechaPedido;
 	
 	
 	public long getId() {
@@ -45,29 +42,17 @@ public class Cliente implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-	public String getEmail() {
-		return email;
+	public Date getFechaPedido() {
+		return fechaPedido;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public int getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
+	public void setFechaPedido(Date fechaPedido) {
+		this.fechaPedido = fechaPedido;
 	}
 	
 	
@@ -75,6 +60,7 @@ public class Cliente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	
 
 }
